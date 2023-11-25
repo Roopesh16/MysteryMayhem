@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class DetectiveController : MonoBehaviour
 {
     // Start is called before the first frame update
