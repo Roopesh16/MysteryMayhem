@@ -28,8 +28,11 @@ namespace MysteryMayhem.Detective
         {
             movementVec.x = Input.GetAxisRaw("Horizontal");
             movementVec.y = Input.GetAxisRaw("Vertical");
-
             movementVec = movementVec.normalized;
+
+            detectiveAnim.SetFloat("Horizontal", movementVec.x);
+            detectiveAnim.SetFloat("Vertical", movementVec.y);
+            detectiveAnim.SetFloat("Speed", movementVec.sqrMagnitude);
         }
 
         private void FixedUpdate()
