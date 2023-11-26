@@ -3779,6 +3779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 640137427727558060, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 07d2eac286e66e8479d99fa0b9c9270f, type: 2}
     - target: {fileID: 4587014810990865635, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3826,6 +3830,10 @@ PrefabInstance:
     - target: {fileID: 4587014810990865637, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
       propertyPath: m_Name
       value: Detective
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587014811208206852, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
