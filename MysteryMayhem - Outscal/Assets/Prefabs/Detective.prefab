@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4587014810990865634}
   - component: {fileID: 640137427727558060}
   - component: {fileID: 4587014811208206848}
-  - component: {fileID: 4587014811208206852}
   - component: {fileID: 1661466126}
+  - component: {fileID: 1661466127}
   m_Layer: 0
   m_Name: Detective
   m_TagString: Untagged
@@ -130,19 +130,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4587014811208206852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587014810990865637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8d13e5b1fe5c5d46a9abfef62b8de14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
 --- !u!61 &1661466126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,3 +156,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0625, y: 1.6875}
   m_EdgeRadius: 0
+--- !u!114 &1661466127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587014810990865637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d13e5b1fe5c5d46a9abfef62b8de14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  powerup: {fileID: 0}
