@@ -16,7 +16,6 @@ namespace MysteryMayhem.Detective.Powerup
 
         #region ---------- Private Variables ----------
         private const float maxTimer = 10f;
-        private bool isDetectorEnable = false;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -53,7 +52,6 @@ namespace MysteryMayhem.Detective.Powerup
         #region ---------- Public Methods ----------
         public IEnumerator EnableLieDetector()
         {
-            isDetectorEnable = true;
             lieDetector.SetActive(true);
             float time = 0f;
             float maxFill = 1f;
