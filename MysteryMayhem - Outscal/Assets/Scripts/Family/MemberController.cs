@@ -1,3 +1,4 @@
+using MysteryMayhem.Detective;
 using MysteryMayhem.Dialogue;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ namespace MysteryMayhem.Family
         {
             if (Vector2.Distance(detective.transform.position, transform.position) <= minDistance)
             {
+                detective.GetComponent<DetectiveController>().DisplayLieDetector();
                 dialogueView.LoadDialogues(memberName);
             }
         }

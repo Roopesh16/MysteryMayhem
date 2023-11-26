@@ -14,6 +14,7 @@ namespace MysteryMayhem.Detective
         private Animator detectiveAnim;
         private Rigidbody2D detectiveRb;
         private Vector2 movementVec;
+        private int count = 0;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -38,11 +39,6 @@ namespace MysteryMayhem.Detective
 
             detectiveAnim.SetFloat("Horizontal", movementVec.x);
             detectiveAnim.SetFloat("Vertical", movementVec.y);
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                StartCoroutine(powerup.EnableLieDetector());
-            }
         }
 
         private void FixedUpdate()
@@ -55,6 +51,14 @@ namespace MysteryMayhem.Detective
         #endregion --------------------
 
         #region ---------- Public Methods ----------
+        public void DisplayLieDetector()
+        {
+            if (count < 1)
+            {
+                count++;
+                StartCoroutine(powerup.EnableLieDetector());
+            }
+        }
         #endregion --------------------
     }
 }

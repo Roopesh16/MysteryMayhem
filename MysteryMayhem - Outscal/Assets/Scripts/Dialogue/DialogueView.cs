@@ -17,15 +17,16 @@ namespace MysteryMayhem.Dialogue
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------
-        private void Awake() {
-            
+        private void Awake()
+        {
+            talkToBtn.onClick.AddListener(TalkToBtn);
         }
         #endregion --------------------
 
         #region ---------- Private Methods ----------
         private void TalkToBtn()
         {
-
+            
         }
         #endregion --------------------
 
