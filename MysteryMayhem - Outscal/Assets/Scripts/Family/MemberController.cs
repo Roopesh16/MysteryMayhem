@@ -35,10 +35,10 @@ namespace MysteryMayhem.Family
             {
                 canLoadDialogue = true;
                 // detective.GetComponent<DetectiveController>().DisplayLieDetector();
-                dialogueView.LoadDialogues(memberName);
+                dialogueView.SetMember(memberName);
             }
 
-            if((Vector2.Distance(detective.transform.position, transform.position) > minDistance) && canLoadDialogue)
+            if ((Vector2.Distance(detective.transform.position, transform.position) > minDistance) && canLoadDialogue)
             {
                 canLoadDialogue = false;
                 dialogueView.DisableDialogueBtn();
