@@ -125,7 +125,7 @@ TextureImporter:
         width: 11
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,6 +133,27 @@ TextureImporter:
       bones: []
       spriteID: 53a3b3aa6dab33d4eb4cc82ad6d6b46f
       internalID: -1249125588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kenneth_Face
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 57
+        width: 51
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0277b24869ec43146a645e594713a6e0
+      internalID: -212044468
       vertices: []
       indices: 
       edges: []
@@ -148,6 +169,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Kenneth_Face: -212044468
       Mr. Kenneth_0: -1249125588
   spritePackingTag: 
   pSDRemoveMatte: 0
