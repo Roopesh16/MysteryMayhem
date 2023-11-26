@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 
 namespace MysteryMayhem.Detective.Powerup
 {
