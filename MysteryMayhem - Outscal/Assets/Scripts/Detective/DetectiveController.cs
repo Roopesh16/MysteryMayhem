@@ -14,7 +14,6 @@ namespace MysteryMayhem.Detective
         private Animator detectiveAnim;
         private Rigidbody2D detectiveRb;
         private Vector2 movementVec;
-        private int count = 0;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -53,11 +52,7 @@ namespace MysteryMayhem.Detective
         #region ---------- Public Methods ----------
         public void DisplayLieDetector()
         {
-            if (count < 1)
-            {
-                count++;
-                StartCoroutine(powerup.EnableLieDetector());
-            }
+            StartCoroutine(powerup.EnableLieDetector());
         }
         #endregion --------------------
     }
