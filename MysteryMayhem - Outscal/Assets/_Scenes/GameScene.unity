@@ -3993,6 +3993,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80540b55a01e2d2499c1c5705c6689a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lieDetector: {fileID: 2141733459}
+  trueBtn: {fileID: 744135505}
+  falseBtn: {fileID: 1922143326}
 --- !u!1 &1084397884
 GameObject:
   m_ObjectHideFlags: 0
@@ -4790,10 +4793,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 640137427727558060, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 07d2eac286e66e8479d99fa0b9c9270f, type: 2}
     - target: {fileID: 4587014810990865635, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4843,8 +4842,8 @@ PrefabInstance:
       value: Detective
       objectReference: {fileID: 0}
     - target: {fileID: 4587014811208206852, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: powerup
+      value: 
+      objectReference: {fileID: 1008263693}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b49de162241d349a96fd7d8d9ec5d3, type: 3}

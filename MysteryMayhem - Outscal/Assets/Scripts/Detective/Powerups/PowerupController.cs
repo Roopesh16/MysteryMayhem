@@ -1,18 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PowerupController : MonoBehaviour
+namespace MysteryMayhem.Detective.Powerup
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PowerupController : MonoBehaviour
     {
-        
-    }
+        #region ---------- Serialized Variables ----------
+        [Header("Lie Detector")]
+        [SerializeField] private GameObject lieDetector;
+        [SerializeField] private Button trueBtn;
+        [SerializeField] private Button falseBtn;
+        #endregion --------------------
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        #region ---------- Private Variables ----------
+        #endregion --------------------
+
+        #region ---------- Public Variables ----------
+        #endregion --------------------
+
+        #region ---------- Monobehavior Methods ----------
+        private void Awake()
+        {
+            lieDetector.SetActive(false);
+        }
+        #endregion --------------------
+
+        #region ---------- Private Methods ----------
+        private void TrueButton()
+        {
+            print("true");
+        }
+
+        private void FalseButton()
+        {
+            print("false");
+        }
+        #endregion --------------------
+
+        #region ---------- Public Methods ----------
+        public void EnableLieDetector()
+        {
+            lieDetector.SetActive(true);
+        }
+        #endregion --------------------
     }
 }

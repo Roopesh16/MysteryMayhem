@@ -1,3 +1,4 @@
+using MysteryMayhem.Detective.Powerup;
 using UnityEngine;
 
 namespace MysteryMayhem.Detective
@@ -6,6 +7,7 @@ namespace MysteryMayhem.Detective
     {
         #region ---------- Serialized Variables ----------
         [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private PowerupController powerup;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -22,6 +24,11 @@ namespace MysteryMayhem.Detective
         {
             detectiveAnim = GetComponent<Animator>();
             detectiveRb = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
+            powerup.EnableLieDetector();
         }
 
         private void Update()
