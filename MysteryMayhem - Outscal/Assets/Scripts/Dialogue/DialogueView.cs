@@ -14,6 +14,7 @@ namespace MysteryMayhem.Dialogue
         [SerializeField] private TextMeshProUGUI talkToText;
 
         [Header("Dialogues")]
+        [SerializeField] private GameObject dialogueBox;
         [SerializeField] private Image speakerImage;
         [SerializeField] private TextMeshProUGUI speakerName;
         [SerializeField] private TextMeshProUGUI speakerText;
@@ -29,13 +30,12 @@ namespace MysteryMayhem.Dialogue
         private string memberName;
         #endregion --------------------
 
-        #region ---------- Public Variables ----------
-        #endregion --------------------
-
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
             talkToBtn.gameObject.SetActive(false);
+            dialogueBox.SetActive(false);
+
             talkToBtn.onClick.AddListener(TalkToBtn);
         }
         #endregion --------------------
@@ -44,12 +44,18 @@ namespace MysteryMayhem.Dialogue
         private void TalkToBtn()
         {
             talkToBtn.gameObject.SetActive(false);
+            EnableDialogueBox();
         }
 
         private void SetBtnText()
         {
             talkToBtn.gameObject.SetActive(true);
             talkToText.text = "Talk to " + memberName;
+        }
+
+        private void EnableDialogueBox()
+        {
+            dialogueBox.SetActive(true);
         }
         #endregion --------------------
 

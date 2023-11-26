@@ -4344,12 +4344,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkToBtn: {fileID: 1710678088}
   talkToText: {fileID: 200566258}
+  dialogueBox: {fileID: 1280583606}
   speakerImage: {fileID: 118954102}
   speakerName: {fileID: 1458706490}
   speakerText: {fileID: 311330843}
   detectiveName: Ida
-  detectiveImage: {fileID: 0}
-  memberImages: []
+  detectiveSprite: {fileID: 0}
+  memberSprites: []
 --- !u!1 &899673620
 GameObject:
   m_ObjectHideFlags: 0
