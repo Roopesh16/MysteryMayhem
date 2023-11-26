@@ -2,7 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -43,9 +44,20 @@ namespace MysteryMayhem.Dialogue
 
             talkToBtn.onClick.AddListener(TalkToBtn);
         }
+
+        private void Start()
+        {
+            LoadDetectiveBegin();
+        }
+
         #endregion --------------------
 
         #region ---------- Private Methods ----------
+        private void LoadDetectiveBegin()
+        {
+            throw new NotImplementedException();
+        }
+        
         private void TalkToBtn()
         {
             talkToBtn.gameObject.SetActive(false);
@@ -68,7 +80,7 @@ namespace MysteryMayhem.Dialogue
 
         private void LoadBlonteDialogue()
         {
-            
+
         }
         #endregion --------------------
 

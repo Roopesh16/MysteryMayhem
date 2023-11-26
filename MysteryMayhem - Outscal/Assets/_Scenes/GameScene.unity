@@ -235,7 +235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aff2ea778da8d204d85f85e1b45138c5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 311330844}
   - component: {fileID: 311330843}
   m_Layer: 5
-  m_Name: SpeakerText
+  m_Name: SpeakerDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello my name is Detective Ida.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 24c9d3703d3b64b4b9b39bfe7d8e424d, type: 2}
   m_sharedMaterial: {fileID: -7691927750698762503, guid: 24c9d3703d3b64b4b9b39bfe7d8e424d, type: 2}
@@ -4347,10 +4347,14 @@ MonoBehaviour:
   dialogueBox: {fileID: 1280583606}
   speakerImage: {fileID: 118954102}
   speakerName: {fileID: 1458706490}
-  speakerText: {fileID: 311330843}
+  speakerDialogue: {fileID: 311330843}
   detectiveName: Ida
-  detectiveSprite: {fileID: 0}
-  memberSprites: []
+  detectiveSprite: {fileID: 21300000, guid: aff2ea778da8d204d85f85e1b45138c5, type: 3}
+  memberSprites:
+  - {fileID: 21300000, guid: 50cd470486b0e3c4d92b1b44a0efb835, type: 3}
+  - {fileID: 21300000, guid: 0e984eda8b6010e4390947943181ebe8, type: 3}
+  - {fileID: 21300000, guid: 12cc2721e110cb947ac509d3beb85897, type: 3}
+  - {fileID: 21300000, guid: dca1829dbab32b7479d02dc24900e7fc, type: 3}
 --- !u!1 &899673620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,7 +4860,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ida
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 24c9d3703d3b64b4b9b39bfe7d8e424d, type: 2}
   m_sharedMaterial: {fileID: -7691927750698762503, guid: 24c9d3703d3b64b4b9b39bfe7d8e424d, type: 2}
