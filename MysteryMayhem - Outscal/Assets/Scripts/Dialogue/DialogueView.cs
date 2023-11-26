@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace MysteryMayhem.Dialogue
@@ -7,6 +9,7 @@ namespace MysteryMayhem.Dialogue
     {
         #region ---------- Serialized Variables ----------
         [SerializeField] private Button talkToBtn;
+        [SerializeField] private TextMeshProUGUI talkToText;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -19,6 +22,7 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
+            talkToBtn.gameObject.SetActive(false);
             talkToBtn.onClick.AddListener(TalkToBtn);
         }
         #endregion --------------------
@@ -26,7 +30,13 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Methods ----------
         private void TalkToBtn()
         {
-            
+            talkToBtn.gameObject.SetActive(false);
+        }
+
+        private void SetBtnText()
+        {
+            talkToBtn.gameObject.SetActive(true);
+            talkToText.text = "Talk to " + memberName;
         }
         #endregion --------------------
 
@@ -34,6 +44,12 @@ namespace MysteryMayhem.Dialogue
         public void LoadDialogues(Members memberName)
         {
             this.memberName = memberName;
+            SetBtnText();
+        }
+
+        public void DisableDialogueBtn()
+        {
+            talkToBtn.gameObject.SetActive(false);
         }
         #endregion --------------------
     }
