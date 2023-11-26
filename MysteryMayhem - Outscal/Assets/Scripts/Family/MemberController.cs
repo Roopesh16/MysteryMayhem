@@ -21,6 +21,8 @@ namespace MysteryMayhem.Family
         #endregion --------------------
 
         #region ---------- Private Variables ----------
+        private int count = 0;
+        private bool canLoadDialogue = false;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -29,10 +31,17 @@ namespace MysteryMayhem.Family
         #region ---------- Monobehavior Methods ----------
         private void Update()
         {
-            if (Vector2.Distance(detective.transform.position, transform.position) <= minDistance)
+            if ((Vector2.Distance(detective.transform.position, transform.position) <= minDistance) && !canLoadDialogue)
             {
-                detective.GetComponent<DetectiveController>().DisplayLieDetector();
+                canLoadDialogue = true;
+                // detective.GetComponent<DetectiveController>().DisplayLieDetector();
                 dialogueView.LoadDialogues(memberName);
+            }
+
+            if((Vector2.Distance(detective.transform.position, transform.position) > minDistance) && canLoadDialogue)
+            {
+                canLoadDialogue = false;
+                dialogueView.DisableDialogueBtn();
             }
         }
         #endregion --------------------
