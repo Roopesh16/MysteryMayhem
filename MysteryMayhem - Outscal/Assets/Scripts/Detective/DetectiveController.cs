@@ -28,7 +28,6 @@ namespace MysteryMayhem.Detective
 
         private void Start()
         {
-            powerup.EnableLieDetector();
         }
 
         private void Update()
@@ -39,6 +38,11 @@ namespace MysteryMayhem.Detective
 
             detectiveAnim.SetFloat("Horizontal", movementVec.x);
             detectiveAnim.SetFloat("Vertical", movementVec.y);
+
+            if(Input.GetMouseButtonDown(1))
+            {
+                StartCoroutine(powerup.EnableLieDetector());
+            }
         }
 
         private void FixedUpdate()
