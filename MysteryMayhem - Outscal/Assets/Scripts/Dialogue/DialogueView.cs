@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
+using System.Collections.Generic; 
 
 namespace MysteryMayhem.Dialogue
 {
@@ -17,17 +17,22 @@ namespace MysteryMayhem.Dialogue
         [SerializeField] private GameObject dialogueBox;
         [SerializeField] private Image speakerImage;
         [SerializeField] private TextMeshProUGUI speakerName;
-        [SerializeField] private TextMeshProUGUI speakerText;
+        [SerializeField] private TextMeshProUGUI speakerDialogue;
 
         [Header("References")]
         [SerializeField] private string detectiveName;
-        [SerializeField] private SpriteRenderer detectiveSprite;
-        [SerializeField] private List<SpriteRenderer> memberSprites;
+        [SerializeField] private Sprite detectiveSprite;
+        [SerializeField] private List<Sprite> memberSprites;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
-        private Members member;
         private string memberName;
+        private Sprite memberSprite;
+        private Queue<string> detectiveDialogues = new Queue<string>();
+        private Queue<string> jackDialogues = new Queue<string>();
+        private Queue<string> annaDialogue = new Queue<string>();
+        private Queue<string> kennethDialogue = new Queue<string>();
+        private Queue<string> blonteDialogue = new Queue<string>();
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------
@@ -56,13 +61,37 @@ namespace MysteryMayhem.Dialogue
         private void EnableDialogueBox()
         {
             dialogueBox.SetActive(true);
+            speakerImage.sprite = detectiveSprite;
+            speakerName.text = detectiveName;
+            speakerDialogue.text = "Hello, my name is Detective Ida.";
+        }
+
+        private void LoadBlonteDialogue()
+        {
+            
         }
         #endregion --------------------
 
         #region ---------- Public Methods ----------
-        public void LoadDialogues(Members memberName)
+        public void SetMember(Members member)
         {
-            member = memberName;
+            switch (member)
+            {
+                case Members.JACK:
+                    memberName = "Jack";
+                    break;
+                case Members.ANNA:
+                    memberName = "Anna";
+                    break;
+                case Members.KENNETH:
+                    memberName = "Kenneth";
+                    break;
+                case Members.BLONTE:
+                    memberName = "Blonte";
+                    LoadBlonteDialogue();
+                    break;
+            }
+            memberSprite = memberSprites[(int)member];
             SetBtnText();
         }
 
