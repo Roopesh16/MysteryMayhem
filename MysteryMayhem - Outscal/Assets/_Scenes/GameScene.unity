@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 118954103}
   - component: {fileID: 118954102}
   m_Layer: 5
-  m_Name: SpeakerFace
+  m_Name: SpeakerImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,10 +210,10 @@ RectTransform:
   m_Father: {fileID: 1280583607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -786.85, y: 166.17}
-  m_SizeDelta: {x: 312.55, y: 332.36}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 173.15002, y: -10.830002}
+  m_SizeDelta: {x: 312.55005, y: 332.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &118954102
 MonoBehaviour:
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: aff2ea778da8d204d85f85e1b45138c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4344,6 +4344,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkToBtn: {fileID: 1710678088}
   talkToText: {fileID: 200566258}
+  speakerImage: {fileID: 118954102}
+  speakerName: {fileID: 1458706490}
+  speakerText: {fileID: 311330843}
+  detectiveName: Ida
+  detectiveImage: {fileID: 0}
+  memberImages: []
 --- !u!1 &899673620
 GameObject:
   m_ObjectHideFlags: 0
@@ -4824,9 +4830,9 @@ RectTransform:
   m_Father: {fileID: 1280583607}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -453, y: 112.2}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -453, y: -64.8}
   m_SizeDelta: {x: 263.77, y: 62.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458706490
