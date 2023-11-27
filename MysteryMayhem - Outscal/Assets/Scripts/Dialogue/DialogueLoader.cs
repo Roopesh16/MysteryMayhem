@@ -23,9 +23,10 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
+            // Detective Begin
             string detectiveString = JsonLoader.LoadJson("DetectiveBegin");
             detBeginDialogues = JsonConvert.DeserializeObject<Queue<string>>(detectiveString);
-
+            // Jack-Detective Dialogue
         }
         #endregion --------------------
 
@@ -33,6 +34,10 @@ namespace MysteryMayhem.Dialogue
         #endregion --------------------
 
         #region ---------- Public Methods ----------
+        public Queue<string> GetDetectiveBegin()
+        {
+            return detBeginDialogues;
+        }
         #endregion --------------------
     }
 }
