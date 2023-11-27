@@ -59,7 +59,7 @@ namespace MysteryMayhem.Dialogue
         }
         private void LoadDetectiveBegin()
         {
-            detectiveQueue = DialogueLoader.Instance.GetDetectiveBegin();
+            detectiveQueue = DialogueLoader.Instance.GetDetBeginQueue();
             InitialDetDialogue();
         }
 
