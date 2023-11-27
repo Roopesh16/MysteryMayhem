@@ -1,9 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -29,11 +27,6 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Variables ----------
         private string memberName;
         private Sprite memberSprite;
-        private Queue<string> detectiveDialogues = new Queue<string>();
-        private Queue<string> jackDialogues = new Queue<string>();
-        private Queue<string> annaDialogue = new Queue<string>();
-        private Queue<string> kennethDialogue = new Queue<string>();
-        private Queue<string> blonteDialogue = new Queue<string>();
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------
@@ -41,7 +34,6 @@ namespace MysteryMayhem.Dialogue
         {
             talkToBtn.gameObject.SetActive(false);
             dialogueBox.SetActive(false);
-
             talkToBtn.onClick.AddListener(TalkToBtn);
         }
 
@@ -55,9 +47,9 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Methods ----------
         private void LoadDetectiveBegin()
         {
-            throw new NotImplementedException();
+
         }
-        
+
         private void TalkToBtn()
         {
             talkToBtn.gameObject.SetActive(false);
@@ -78,7 +70,7 @@ namespace MysteryMayhem.Dialogue
             speakerDialogue.text = "Hello, my name is Detective Ida.";
         }
 
-        private void LoadBlonteDialogue()
+        private void StartBlonteDialogue()
         {
 
         }
@@ -100,7 +92,7 @@ namespace MysteryMayhem.Dialogue
                     break;
                 case Members.BLONTE:
                     memberName = "Blonte";
-                    LoadBlonteDialogue();
+                    StartBlonteDialogue();
                     break;
             }
             memberSprite = memberSprites[(int)member];
