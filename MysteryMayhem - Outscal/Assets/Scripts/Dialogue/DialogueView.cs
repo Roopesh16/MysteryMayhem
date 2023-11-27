@@ -28,6 +28,7 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Variables ----------
         private string memberName;
         private Sprite memberSprite;
+        private bool isDetSpeak = true;
         private Queue<string> detectiveQueue = new Queue<string>();
         private Queue<string> memberQueue = new Queue<string>();
         #endregion --------------------
@@ -53,21 +54,44 @@ namespace MysteryMayhem.Dialogue
         {
             detectiveQueue = DialogueLoader.Instance.GetDetectiveBegin();
             dialogueBox.SetActive(true);
-            speakerImage.sprite = detectiveSprite;
-            speakerName.text = detectiveName;
             speakerDialogue.text = detectiveQueue.Dequeue();
         }
 
         private void DequeueDialogues()
         {
-            if(detectiveQueue.Count == 0)
+            if (detectiveQueue.Count == 0 && memberQueue.Count == 0)
             {
                 dialogueBox.SetActive(false);
                 detectiveQueue.Clear();
-                speakerDialogue.text = " ";
+                memberQueue.Clear();
                 return;
             }
-            speakerDialogue.text = detectiveQueue.Dequeue();
+
+            if (isDetSpeak && detectiveQueue.Count > 0)
+            {
+                speakerImage.sprite = detectiveSprite;
+                speakerName.text = detectiveName;
+                speakerDialogue.text = detectiveQueue.Dequeue();
+            }
+            else if (!isDetSpeak && memberQueue.Count > 0)
+            {
+                speakerImage.sprite = memberSprite;
+                speakerName.text = memberName;
+                speakerDialogue.text = memberQueue.Dequeue();
+            }
+
+            if (detectiveQueue.Count == 0)
+            {
+                isDetSpeak = false;
+            }
+            else if (memberQueue.Count == 0)
+            {
+                isDetSpeak = true;
+            }
+            else
+            {
+                isDetSpeak = !isDetSpeak;
+            }
         }
 
         private void TalkToBtn()
