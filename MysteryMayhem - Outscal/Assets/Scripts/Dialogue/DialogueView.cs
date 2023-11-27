@@ -54,6 +54,8 @@ namespace MysteryMayhem.Dialogue
         {
             detectiveQueue = DialogueLoader.Instance.GetDetectiveBegin();
             dialogueBox.SetActive(true);
+            speakerImage.sprite = detectiveSprite;
+            speakerName.text = detectiveName;
             speakerDialogue.text = detectiveQueue.Dequeue();
         }
 
