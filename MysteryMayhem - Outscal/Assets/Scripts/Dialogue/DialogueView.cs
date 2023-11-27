@@ -27,6 +27,7 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Variables ----------
         private string memberName;
         private Sprite memberSprite;
+        private Queue<string> beginQueue = new Queue<string>();
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------
@@ -47,7 +48,12 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Methods ----------
         private void LoadDetectiveBegin()
         {
+            dialogueBox.SetActive(true);
+            speakerImage.sprite = detectiveSprite;
+            speakerName.text = detectiveName;
 
+            beginQueue = DialogueLoader.Instance.GetDetectiveBegin();
+            speakerDialogue.text = beginQueue.Dequeue();
         }
 
         private void TalkToBtn()

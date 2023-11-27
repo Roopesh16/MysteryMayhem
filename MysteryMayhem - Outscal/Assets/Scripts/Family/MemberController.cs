@@ -21,7 +21,6 @@ namespace MysteryMayhem.Family
         #endregion --------------------
 
         #region ---------- Private Variables ----------
-        private int count = 0;
         private bool canLoadDialogue = false;
         #endregion --------------------
 
