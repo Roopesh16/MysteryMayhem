@@ -11,11 +11,6 @@ namespace MysteryMayhem.Dialogue
         #endregion --------------------
 
         #region ---------- Private Variables ----------
-        private Queue<string> detBeginDialogues = new Queue<string>();
-        private Queue<string> jackDialogues = new Queue<string>();
-        private Queue<string> annaDialogue = new Queue<string>();
-        private Queue<string> kennethDialogue = new Queue<string>();
-        private Queue<string> blonteDialogue = new Queue<string>();
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -24,20 +19,15 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
-            if(Instance == null)
+            if (Instance == null)
             {
                 Instance = this;
             }
-            else if(Instance != this)
+            else if (Instance != this)
             {
                 Destroy(this);
             }
             DontDestroyOnLoad(gameObject);
-
-            // Detective Begin
-            string detectiveString = JsonLoader.LoadJson("DetectiveBegin");
-            detBeginDialogues = JsonConvert.DeserializeObject<Queue<string>>(detectiveString);
-            // Jack-Detective Dialogue
         }
         #endregion --------------------
 
@@ -47,9 +37,12 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Public Methods ----------
         public Queue<string> GetDetectiveBegin()
         {
-            return detBeginDialogues;
+            string detString = JsonLoader.LoadJson("DetectiveBegin");
+            Queue<string> detectiveQueue = JsonConvert.DeserializeObject<Queue<string>>(detString);
+            return detectiveQueue;
         }
         #endregion --------------------
+
     }
 }
 

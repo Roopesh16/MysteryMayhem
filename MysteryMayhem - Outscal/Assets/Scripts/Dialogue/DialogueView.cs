@@ -50,13 +50,17 @@ namespace MysteryMayhem.Dialogue
         #endregion --------------------
 
         #region ---------- Private Methods ----------
-        private void LoadDetectiveBegin()
+        private void InitialDetDialogue()
         {
-            detectiveQueue = DialogueLoader.Instance.GetDetectiveBegin();
             dialogueBox.SetActive(true);
             speakerImage.sprite = detectiveSprite;
             speakerName.text = detectiveName;
             speakerDialogue.text = detectiveQueue.Dequeue();
+        }
+        private void LoadDetectiveBegin()
+        {
+            detectiveQueue = DialogueLoader.Instance.GetDetectiveBegin();
+            InitialDetDialogue();
         }
 
         private void DequeueDialogues()
