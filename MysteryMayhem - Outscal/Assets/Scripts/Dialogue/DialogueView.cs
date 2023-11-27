@@ -17,6 +17,7 @@ namespace MysteryMayhem.Dialogue
         [SerializeField] private Image speakerImage;
         [SerializeField] private TextMeshProUGUI speakerName;
         [SerializeField] private TextMeshProUGUI speakerDialogue;
+        [SerializeField] private Button nextButton;
 
         [Header("References")]
         [SerializeField] private string detectiveName;
@@ -27,7 +28,8 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Variables ----------
         private string memberName;
         private Sprite memberSprite;
-        private Queue<string> beginQueue = new Queue<string>();
+        private Queue<string> detectiveQueue = new Queue<string>();
+        private Queue<string> memberQueue = new Queue<string>();
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------
@@ -35,6 +37,7 @@ namespace MysteryMayhem.Dialogue
         {
             talkToBtn.gameObject.SetActive(false);
             dialogueBox.SetActive(false);
+            nextButton.onClick.AddListener(DequeueDialogues);
             talkToBtn.onClick.AddListener(TalkToBtn);
         }
 
@@ -48,12 +51,23 @@ namespace MysteryMayhem.Dialogue
         #region ---------- Private Methods ----------
         private void LoadDetectiveBegin()
         {
+            detectiveQueue = DialogueLoader.Instance.GetDetectiveBegin();
             dialogueBox.SetActive(true);
             speakerImage.sprite = detectiveSprite;
             speakerName.text = detectiveName;
+            speakerDialogue.text = detectiveQueue.Dequeue();
+        }
 
-            beginQueue = DialogueLoader.Instance.GetDetectiveBegin();
-            speakerDialogue.text = beginQueue.Dequeue();
+        private void DequeueDialogues()
+        {
+            if(detectiveQueue.Count == 0)
+            {
+                dialogueBox.SetActive(false);
+                detectiveQueue.Clear();
+                speakerDialogue.text = " ";
+                return;
+            }
+            speakerDialogue.text = detectiveQueue.Dequeue();
         }
 
         private void TalkToBtn()
@@ -71,9 +85,6 @@ namespace MysteryMayhem.Dialogue
         private void EnableDialogueBox()
         {
             dialogueBox.SetActive(true);
-            speakerImage.sprite = detectiveSprite;
-            speakerName.text = detectiveName;
-            speakerDialogue.text = "Hello, my name is Detective Ida.";
         }
 
         private void StartBlonteDialogue()
