@@ -73,18 +73,13 @@ namespace MysteryMayhem.Dialogue
         private void TalkToBtn()
         {
             talkToBtn.gameObject.SetActive(false);
-            EnableDialogueBox();
+            dialogueBox.SetActive(true);
         }
 
         private void SetBtnText()
         {
             talkToBtn.gameObject.SetActive(true);
             talkToText.text = "Talk to " + memberName;
-        }
-
-        private void EnableDialogueBox()
-        {
-            dialogueBox.SetActive(true);
         }
 
         private void StartBlonteDialogue()
