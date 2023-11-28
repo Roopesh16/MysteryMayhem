@@ -7,7 +7,8 @@ public enum Members
     JACK,
     ANNA,
     KENNETH,
-    BLONTE
+    BLONTE,
+    NULL
 }
 namespace MysteryMayhem.Family
 {
@@ -40,6 +41,7 @@ namespace MysteryMayhem.Family
             if ((Vector2.Distance(detective.transform.position, transform.position) > minDistance) && canLoadDialogue)
             {
                 canLoadDialogue = false;
+                dialogueView.ResetMember();
                 dialogueView.DisableDialogueBtn();
             }
         }

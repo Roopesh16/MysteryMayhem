@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using MysteryMayhem.Events;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -26,10 +27,11 @@ namespace MysteryMayhem.Dialogue
         #endregion --------------------
 
         #region ---------- Private Variables ----------
-        private Members memberType;
+        private Members memberType = Members.NULL;
         private string memberName;
         private Sprite memberSprite;
         private bool isDetSpeak = true;
+        private bool[] hasMemberSpoken = new bool[4];
         private Queue<string> detectiveQueue = new Queue<string>();
         private Queue<string> memberQueue = new Queue<string>();
         #endregion --------------------
@@ -45,6 +47,10 @@ namespace MysteryMayhem.Dialogue
 
         private void Start()
         {
+            for (int i = 0; i < hasMemberSpoken.Length; i++)
+            {
+                hasMemberSpoken[i] = false;
+            }
             LoadDetectiveBegin();
         }
 
@@ -68,9 +74,7 @@ namespace MysteryMayhem.Dialogue
         {
             if (detectiveQueue.Count == 0 && memberQueue.Count == 0)
             {
-                dialogueBox.SetActive(false);
-                detectiveQueue.Clear();
-                memberQueue.Clear();
+                DisableDialogueBox();
                 return;
             }
 
@@ -116,9 +120,33 @@ namespace MysteryMayhem.Dialogue
 
         private void StartMemberDialogue()
         {
-            detectiveQueue = DialogueLoader.Instance.GetDetDialogueQue(memberType);
-            memberQueue = DialogueLoader.Instance.GetMemberDialogueQue(memberType);
-            InitialDetDialogue();
+            if (hasMemberSpoken[(int)memberType])
+            {
+                speakerName.text = "";
+                speakerImage.enabled = false;
+                memberQueue = DialogueLoader.Instance.GetMemberSpokenQue();
+                speakerDialogue.text = memberQueue.Dequeue();
+            }
+            else
+            {
+                speakerImage.enabled = true;
+                detectiveQueue = DialogueLoader.Instance.GetDetDialogueQue(memberType);
+                memberQueue = DialogueLoader.Instance.GetMemberDialogueQue(memberType);
+                InitialDetDialogue();
+            }
+        }
+
+        private void DisableDialogueBox()
+        {
+            dialogueBox.SetActive(false);
+            detectiveQueue.Clear();
+            memberQueue.Clear();
+            if (memberType != Members.NULL && !hasMemberSpoken[(int)memberType])
+            {
+                hasMemberSpoken[(int)memberType] = true;
+                memberType = Members.NULL;
+                EventService.Instance.OnConversationEnd.InvokeEvent();
+            }
         }
         #endregion --------------------
 
@@ -143,6 +171,11 @@ namespace MysteryMayhem.Dialogue
             memberSprite = memberSprites[(int)member];
             memberType = member;
             SetBtnText();
+        }
+
+        public void ResetMember()
+        {
+            memberType = Members.NULL;
         }
 
         public void DisableDialogueBtn()
