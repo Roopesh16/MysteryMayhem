@@ -1,4 +1,5 @@
 using System.Collections;
+using MysteryMayhem.Events;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,10 @@ namespace MysteryMayhem.Detective.Powerup
 
         #region ---------- Private Variables ----------
         private const float maxTimer = 10f;
+        private const float zeroFill = 0f;
+        private const float maxFill = 1f;
+        private float time = 0f;
+        private IEnumerator lieCoroutine;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -27,6 +32,16 @@ namespace MysteryMayhem.Detective.Powerup
             lieDetector.SetActive(false);
             trueBtn.onClick.AddListener(TrueButton);
             falseBtn.onClick.AddListener(FalseButton);
+        }
+
+        private void OnEnable()
+        {
+            EventService.Instance.OnConversationEnd.AddListener(OnConversationEnd);
+        }
+
+        private void OnDisable()
+        {
+            EventService.Instance.OnConversationEnd.RemoveListener(OnConversationEnd);
         }
         #endregion --------------------
 
@@ -43,28 +58,35 @@ namespace MysteryMayhem.Detective.Powerup
 
         private void DisableLieDetector()
         {
-            timerImage.fillAmount = 1;
-            StopCoroutine(EnableLieDetector());
             lieDetector.SetActive(false);
+            time = 0f;
+            StopCoroutine(lieCoroutine);
+            timerImage.fillAmount = maxFill;
         }
         #endregion --------------------
 
         #region ---------- Public Methods ----------
         public IEnumerator EnableLieDetector()
         {
-            lieDetector.SetActive(true);
-            float time = 0f;
-            float maxFill = 1f;
-            float zeroFill = 0f;
+            print("Time out loop " + time);
             while (time < maxTimer)
             {
+                print("Time in loop " + time);
                 timerImage.fillAmount = Mathf.Lerp(maxFill, zeroFill, time / maxTimer);
                 time += Time.deltaTime;
                 yield return null;
             }
             timerImage.fillAmount = zeroFill;
+            time = 0f;
             lieDetector.SetActive(false);
             timerImage.fillAmount = maxFill;
+        }
+
+        public void OnConversationEnd()
+        {
+            lieDetector.SetActive(true);
+            lieCoroutine = EnableLieDetector();
+            StartCoroutine(lieCoroutine);
         }
         #endregion --------------------
     }
