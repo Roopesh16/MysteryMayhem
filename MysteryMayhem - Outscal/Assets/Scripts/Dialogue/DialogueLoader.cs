@@ -85,6 +85,13 @@ namespace MysteryMayhem.Dialogue
             Queue<string> memberQueue = JsonConvert.DeserializeObject<Queue<string>>(memString);
             return memberQueue;
         }
+
+        public Queue<string> GetMemberSpokenQue()
+        {
+            string memString = JsonLoader.LoadJson("MemberSpoken");
+            Queue<string> memberQueue = JsonConvert.DeserializeObject<Queue<string>>(memString);
+            return memberQueue;
+        }
         #endregion --------------------
 
     }
