@@ -26,6 +26,7 @@ namespace MysteryMayhem.Dialogue
         #endregion --------------------
 
         #region ---------- Private Variables ----------
+        private Members memberType;
         private string memberName;
         private Sprite memberSprite;
         private bool isDetSpeak = true;
@@ -104,6 +105,7 @@ namespace MysteryMayhem.Dialogue
         {
             talkToBtn.gameObject.SetActive(false);
             dialogueBox.SetActive(true);
+            StartMemberDialogue();
         }
 
         private void SetBtnText()
@@ -112,9 +114,11 @@ namespace MysteryMayhem.Dialogue
             talkToText.text = "Talk to " + memberName;
         }
 
-        private void StartBlonteDialogue()
+        private void StartMemberDialogue()
         {
-
+            detectiveQueue = DialogueLoader.Instance.GetDetDialogueQue(memberType);
+            memberQueue = DialogueLoader.Instance.GetMemberDialogueQue(memberType);
+            InitialDetDialogue();
         }
         #endregion --------------------
 
@@ -127,17 +131,17 @@ namespace MysteryMayhem.Dialogue
                     memberName = "Jack";
                     break;
                 case Members.ANNA:
-                    memberName = "Anna";
+                    memberName = "Maid Anna";
                     break;
                 case Members.KENNETH:
-                    memberName = "Kenneth";
+                    memberName = "Mr. Kenneth";
                     break;
                 case Members.BLONTE:
-                    memberName = "Blonte";
-                    StartBlonteDialogue();
+                    memberName = "Ms. Blonte";
                     break;
             }
             memberSprite = memberSprites[(int)member];
+            memberType = member;
             SetBtnText();
         }
 
