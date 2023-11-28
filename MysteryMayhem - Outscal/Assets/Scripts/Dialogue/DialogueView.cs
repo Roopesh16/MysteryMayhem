@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using MysteryMayhem.Events;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -68,9 +69,7 @@ namespace MysteryMayhem.Dialogue
         {
             if (detectiveQueue.Count == 0 && memberQueue.Count == 0)
             {
-                dialogueBox.SetActive(false);
-                detectiveQueue.Clear();
-                memberQueue.Clear();
+                DisableDialogueBox();
                 return;
             }
 
@@ -119,6 +118,14 @@ namespace MysteryMayhem.Dialogue
             detectiveQueue = DialogueLoader.Instance.GetDetDialogueQue(memberType);
             memberQueue = DialogueLoader.Instance.GetMemberDialogueQue(memberType);
             InitialDetDialogue();
+        }
+
+        private void DisableDialogueBox()
+        {
+            dialogueBox.SetActive(false);
+            detectiveQueue.Clear();
+            memberQueue.Clear();
+            EventService.Instance.OnConversationEnd.InvokeEvent();
         }
         #endregion --------------------
 
