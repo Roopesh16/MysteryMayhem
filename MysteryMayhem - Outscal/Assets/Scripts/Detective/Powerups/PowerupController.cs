@@ -68,10 +68,8 @@ namespace MysteryMayhem.Detective.Powerup
         #region ---------- Public Methods ----------
         public IEnumerator EnableLieDetector()
         {
-            print("Time out loop " + time);
             while (time < maxTimer)
             {
-                print("Time in loop " + time);
                 timerImage.fillAmount = Mathf.Lerp(maxFill, zeroFill, time / maxTimer);
                 time += Time.deltaTime;
                 yield return null;
