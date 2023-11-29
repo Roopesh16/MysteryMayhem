@@ -1058,7 +1058,7 @@ MonoBehaviour:
   - Mr. Kenneth
   - Ms. Blonte
   - Amanda
-  historyInfo: The ring is an ancient one in this family. Mr. Kenneth has kept in
+  historyInfo: This ring is an ancient one in this family. Mr. Kenneth has kept in
     his possesion, but it seems Ms. Blonte and Amanda too have touched it!
   objectInfoView: {fileID: 1342656092}
   infoButton: {fileID: 1457640177}
@@ -5187,7 +5187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -0, y: 250}
+  m_AnchoredPosition: {x: 0, y: 250}
   m_SizeDelta: {x: 167.9, y: 65.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992160045
@@ -5851,7 +5851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.45, y: -286.52}
+  m_AnchoredPosition: {x: -21.45, y: -264.1}
   m_SizeDelta: {x: 202.89, y: 82.83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1457640177
@@ -7546,7 +7546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 395.28998, y: -54.368}
+  m_AnchoredPosition: {x: 395.28998, y: -54.36801}
   m_SizeDelta: {x: 278, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993511154
