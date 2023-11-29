@@ -1,4 +1,5 @@
 using System.Collections;
+using MysteryMayhem.Detective.Deduction;
 using MysteryMayhem.Events;
 using MysteryMayhem.Manager;
 using UnityEngine;
@@ -14,6 +15,9 @@ namespace MysteryMayhem.Detective.Powerup
         [SerializeField] private Button trueBtn;
         [SerializeField] private Button falseBtn;
         [SerializeField] private Image timerImage;
+
+        [Header("References")]
+        [SerializeField] private DeductionController deductionController;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -60,6 +64,7 @@ namespace MysteryMayhem.Detective.Powerup
         private void DisableLieDetector()
         {
             GameManager.Instace.SetGameState(GameState.PLAY);
+            deductionController.IncrementDeductions();
             lieDetector.SetActive(false);
             time = 0f;
             StopCoroutine(lieCoroutine);
