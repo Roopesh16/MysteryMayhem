@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeductionView : MonoBehaviour
+namespace MysteryMayhem.Detective.Deduction
 {
-    // Start is called before the first frame update
-    void Start()
+    public class DeductionView : MonoBehaviour
     {
-        
-    }
+        #region ---------- Serialized Variables ----------
+        #endregion --------------------
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        #region ---------- Private Variables ----------
+        #endregion --------------------
+
+        #region ---------- Public Variables ----------
+        #endregion --------------------
+
+        #region ---------- Monobehavior Methods ----------
+        #endregion --------------------
+
+        #region ---------- Private Methods ----------
+        #endregion --------------------
+
+        #region ---------- Public Methods ----------
+        #endregion --------------------
     }
 }
+
