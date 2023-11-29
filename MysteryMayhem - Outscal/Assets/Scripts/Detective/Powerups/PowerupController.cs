@@ -1,5 +1,6 @@
 using System.Collections;
 using MysteryMayhem.Events;
+using MysteryMayhem.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,6 +59,7 @@ namespace MysteryMayhem.Detective.Powerup
 
         private void DisableLieDetector()
         {
+            GameManager.Instace.SetGameState(GameState.PLAY);
             lieDetector.SetActive(false);
             time = 0f;
             StopCoroutine(lieCoroutine);
