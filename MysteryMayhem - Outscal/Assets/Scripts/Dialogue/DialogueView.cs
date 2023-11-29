@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using MysteryMayhem.Events;
+using MysteryMayhem.Manager;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -47,6 +48,7 @@ namespace MysteryMayhem.Dialogue
 
         private void Start()
         {
+            GameManager.Instace.SetGameState(GameState.CONVERSATION);
             for (int i = 0; i < hasMemberSpoken.Length; i++)
             {
                 hasMemberSpoken[i] = false;
@@ -120,6 +122,7 @@ namespace MysteryMayhem.Dialogue
 
         private void StartMemberDialogue()
         {
+            GameManager.Instace.SetGameState(GameState.CONVERSATION);
             if (hasMemberSpoken[(int)memberType])
             {
                 speakerName.text = "";
@@ -147,6 +150,7 @@ namespace MysteryMayhem.Dialogue
                 memberType = Members.NULL;
                 EventService.Instance.OnConversationEnd.InvokeEvent();
             }
+            GameManager.Instace.SetGameState(GameState.PLAY);
         }
         #endregion --------------------
 

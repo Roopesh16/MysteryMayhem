@@ -1,4 +1,5 @@
 using MysteryMayhem.Detective.Powerup;
+using MysteryMayhem.Manager;
 using UnityEngine;
 
 namespace MysteryMayhem.Detective
@@ -32,17 +33,23 @@ namespace MysteryMayhem.Detective
 
         private void Update()
         {
-            movementVec.x = Input.GetAxisRaw("Horizontal");
-            movementVec.y = Input.GetAxisRaw("Vertical");
-            movementVec = movementVec.normalized;
+            if (GameManager.Instace.GetGameState() == GameState.PLAY)
+            {
+                movementVec.x = Input.GetAxisRaw("Horizontal");
+                movementVec.y = Input.GetAxisRaw("Vertical");
+                movementVec = movementVec.normalized;
 
-            detectiveAnim.SetFloat("Horizontal", movementVec.x);
-            detectiveAnim.SetFloat("Vertical", movementVec.y);
+                detectiveAnim.SetFloat("Horizontal", movementVec.x);
+                detectiveAnim.SetFloat("Vertical", movementVec.y);
+            }
         }
 
         private void FixedUpdate()
         {
-            detectiveRb.MovePosition((Vector2)transform.position + movementVec * moveSpeed * Time.fixedDeltaTime);
+            if (GameManager.Instace.GetGameState() == GameState.PLAY)
+            {
+                detectiveRb.MovePosition((Vector2)transform.position + movementVec * moveSpeed * Time.fixedDeltaTime);
+            }
         }
         #endregion --------------------
 
