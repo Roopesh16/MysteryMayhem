@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MysteryMayhem.Objects
 {
@@ -19,6 +20,7 @@ namespace MysteryMayhem.Objects
         [SerializeField] private List<string> historyList = new List<string>();
         [SerializeField] private string historyInfo;
         [SerializeField] private ObjectInfoView objectInfoView;
+        [SerializeField] private Button infoButton;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
