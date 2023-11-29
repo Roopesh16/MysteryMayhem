@@ -41,7 +41,7 @@ namespace MysteryMayhem.Family
             {
                 canLoadDialogue = false;
                 dialogueView.ResetMember();
-                dialogueView.DisableDialogueBtn();
+                dialogueView.DisableTalkToBtn();
             }
         }
         #endregion --------------------

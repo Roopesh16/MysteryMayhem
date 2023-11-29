@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using MysteryMayhem.Manager;
 using MysteryMayhem.Detective.Deduction;
+using MysteryMayhem.Events;
 
 namespace MysteryMayhem.Objects
 {
@@ -46,6 +47,16 @@ namespace MysteryMayhem.Objects
             infoButton.gameObject.SetActive(false);
         }
 
+        private void OnEnable()
+        {
+            EventService.Instance.OnFinalDeduction.AddListener(DisableInfoButton);
+        }
+
+        private void OnDisable()
+        {
+            EventService.Instance.OnFinalDeduction.RemoveListener(DisableInfoButton);
+        }
+
         private void Update()
         {
             if (GameManager.Instace.GetGameState() == GameState.PLAY)
@@ -73,10 +84,15 @@ namespace MysteryMayhem.Objects
             objectInfoView.DisplayHistoryBox();
             GameManager.Instace.SetGameState(GameState.DEDUCTION);
             clickCount++;
-            if(clickCount == 1)
+            if (clickCount == 1)
             {
                 deductionController.IncrementDeductions(true);
             }
+        }
+
+        private void DisableInfoButton()
+        {
+            infoButton.gameObject.SetActive(false);
         }
         #endregion --------------------
 

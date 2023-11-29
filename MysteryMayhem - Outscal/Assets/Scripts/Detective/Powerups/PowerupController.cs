@@ -1,5 +1,6 @@
 using System.Collections;
 using MysteryMayhem.Detective.Deduction;
+using MysteryMayhem.Dialogue;
 using MysteryMayhem.Events;
 using MysteryMayhem.Manager;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace MysteryMayhem.Detective.Powerup
 
         [Header("References")]
         [SerializeField] private DeductionController deductionController;
+        [SerializeField] private DialogueView dialogueView;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -53,11 +55,19 @@ namespace MysteryMayhem.Detective.Powerup
         #region ---------- Private Methods ----------
         private void TrueButton()
         {
+            if (dialogueView.GetMemberType() == Members.BLONTE)
+            {
+                deductionController.SetBlonteDecision(true);
+            }
             DisableLieDetector();
         }
 
         private void FalseButton()
         {
+            if (dialogueView.GetMemberType() == Members.BLONTE)
+            {
+                deductionController.SetBlonteDecision(false);
+            }
             DisableLieDetector();
         }
 

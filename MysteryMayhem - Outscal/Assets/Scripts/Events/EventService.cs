@@ -23,12 +23,14 @@ namespace MysteryMayhem.Events
         }
 
         public EventController OnConversationEnd { get; private set; }
+        public EventController OnFinalDeduction { get; private set; }
         #endregion --------------------
 
         #region ---------- Public Methods ----------
         public EventService()
         {
             OnConversationEnd = new EventController();
+            OnFinalDeduction = new EventController();
         }
         #endregion --------------------
     }

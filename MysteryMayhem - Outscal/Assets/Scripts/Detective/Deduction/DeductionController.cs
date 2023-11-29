@@ -1,22 +1,31 @@
+using MysteryMayhem.Events;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MysteryMayhem.Detective.Deduction
 {
     public class DeductionController : MonoBehaviour
     {
         #region ---------- Serialized Variables ----------
+        [SerializeField] private Button deductionButton;
+        [SerializeField] private DeductionView deductionView;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
         private const int totalDeductions = 7;
         private int deductionsMade = 0;
         private int deductionMissed = 0;
+        private bool blonteDecision = false;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------
+        private void Awake()
+        {
+            deductionButton.gameObject.SetActive(false);
+        }
         #endregion --------------------
 
         #region ---------- Private Methods ----------
@@ -37,13 +46,20 @@ namespace MysteryMayhem.Detective.Deduction
 
             if (deductionsMade == totalDeductions)
             {
-                // deductionView.DisplayInfo(int deductionsMade, int deductionMissed);
+
+                deductionButton.gameObject.SetActive(true);
             }
         }
 
-        public void BlonteDecision(bool decision)
+        public void SetBlonteDecision(bool decision)
         {
+            blonteDecision = decision;
+        }
 
+        public void DeductionButton()
+        {
+            EventService.Instance.OnFinalDeduction.InvokeEvent();
+            //deductionView.DisplayFinalInfo();
         }
         #endregion --------------------
     }

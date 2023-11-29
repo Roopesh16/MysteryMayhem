@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using MysteryMayhem.Events;
 using MysteryMayhem.Manager;
+using MysteryMayhem.Detective.Deduction;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -21,10 +22,13 @@ namespace MysteryMayhem.Dialogue
         [SerializeField] private TextMeshProUGUI speakerDialogue;
         [SerializeField] private Button nextButton;
 
-        [Header("References")]
+        [Header("Detective References")]
         [SerializeField] private string detectiveName;
         [SerializeField] private Sprite detectiveSprite;
         [SerializeField] private List<Sprite> memberSprites;
+
+        // [Header("References")]
+        // [SerializeField] private DeductionController deductionController;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -44,6 +48,16 @@ namespace MysteryMayhem.Dialogue
             dialogueBox.SetActive(false);
             nextButton.onClick.AddListener(DequeueDialogues);
             talkToBtn.onClick.AddListener(TalkToBtn);
+        }
+
+        private void OnEnable()
+        {
+            EventService.Instance.OnFinalDeduction.AddListener(DisableTalkToBtn);
+        }
+
+        private void OnDisable()
+        {
+            EventService.Instance.OnFinalDeduction.RemoveListener(DisableTalkToBtn);
         }
 
         private void Start()
@@ -182,9 +196,13 @@ namespace MysteryMayhem.Dialogue
             memberType = Members.NULL;
         }
 
-        public void DisableDialogueBtn()
+        public void DisableTalkToBtn()
         {
             talkToBtn.gameObject.SetActive(false);
+        }
+        public Members GetMemberType()
+        {
+            return memberType;
         }
         #endregion --------------------
     }
