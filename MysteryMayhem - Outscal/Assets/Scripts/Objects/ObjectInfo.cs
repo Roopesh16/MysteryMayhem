@@ -17,6 +17,8 @@ namespace MysteryMayhem.Objects
         #region ---------- Serialized Variables ----------
         [SerializeField] private ObjectType objectType;
         [SerializeField] private List<string> historyList = new List<string>();
+        [SerializeField] private string historyInfo;
+        [SerializeField] private ObjectInfoView objectInfoView;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -35,6 +37,11 @@ namespace MysteryMayhem.Objects
         public List<string> GetHistoryList()
         {
             return historyList;
+        }
+
+        public string GetHistoryInfo()
+        {
+            return historyInfo;
         }
         #endregion --------------------
     }
