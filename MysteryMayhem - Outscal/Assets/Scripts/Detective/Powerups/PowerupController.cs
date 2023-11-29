@@ -64,7 +64,7 @@ namespace MysteryMayhem.Detective.Powerup
         private void DisableLieDetector()
         {
             GameManager.Instace.SetGameState(GameState.PLAY);
-            deductionController.IncrementDeductions();
+            deductionController.IncrementDeductions(true);
             lieDetector.SetActive(false);
             time = 0f;
             StopCoroutine(lieCoroutine);
@@ -85,6 +85,7 @@ namespace MysteryMayhem.Detective.Powerup
             time = 0f;
             lieDetector.SetActive(false);
             timerImage.fillAmount = maxFill;
+            deductionController.IncrementDeductions(false);
         }
 
         public void OnConversationEnd()

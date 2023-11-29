@@ -75,7 +75,7 @@ namespace MysteryMayhem.Objects
             clickCount++;
             if(clickCount == 1)
             {
-                deductionController.IncrementDeductions();
+                deductionController.IncrementDeductions(true);
             }
         }
         #endregion --------------------

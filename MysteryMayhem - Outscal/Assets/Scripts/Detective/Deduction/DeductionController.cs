@@ -9,7 +9,8 @@ namespace MysteryMayhem.Detective.Deduction
 
         #region ---------- Private Variables ----------
         private const int totalDeductions = 7;
-        private int currentDeduction = 0;
+        private int deductionsMade = 0;
+        private int deductionMissed = 0;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -22,12 +23,21 @@ namespace MysteryMayhem.Detective.Deduction
         #endregion --------------------
 
         #region ---------- Public Methods ---------
-        public void IncrementDeductions()
+        public void IncrementDeductions(bool hasDeductionMade)
         {
-            currentDeduction++;
-            if(currentDeduction == totalDeductions)
+            if (hasDeductionMade)
             {
-                // deductionView.DisplayInfo();
+                deductionsMade++;
+            }
+            else
+            {
+                deductionsMade++;
+                deductionMissed++;
+            }
+
+            if (deductionsMade == totalDeductions)
+            {
+                // deductionView.DisplayInfo(int deductionsMade, int deductionMissed);
             }
         }
 
