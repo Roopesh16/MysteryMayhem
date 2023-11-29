@@ -39,7 +39,6 @@ namespace MysteryMayhem.Objects
         {
             historyInfoText.text = objects[(int)objectType].GetHistoryInfo();
             List<string> namesString = objects[(int)objectType].GetHistoryList();
-            print(namesString.Count);
             for (int i = 0; i < namesString.Count; i++)
             {
                 namesText[i].gameObject.SetActive(true);
@@ -51,6 +50,7 @@ namespace MysteryMayhem.Objects
         {
             for (int i = 0; i < namesText.Length; i++)
             {
+                namesText[i].text = "";
                 namesText[i].gameObject.SetActive(false);
             }
         }
@@ -58,6 +58,7 @@ namespace MysteryMayhem.Objects
         private void CloseHistoryBox()
         {
             GameManager.Instace.SetGameState(GameState.PLAY);
+            objectType = ObjectType.NULL;
             historyInfoBox.SetActive(false);
             historyInfoText.text = "";
             DisableNameText();
@@ -66,11 +67,15 @@ namespace MysteryMayhem.Objects
         #endregion --------------------
 
         #region ---------- Public Methods ----------
-        public void DisplayHistoryBox(ObjectType objectType)
+        public void DisplayHistoryBox()
         {
-            this.objectType = objectType;
             historyInfoBox.SetActive(true);
             SetHistoryInfo();
+        }
+
+        public void SetObjectType(ObjectType objectType)
+        {
+            this.objectType = objectType;
         }
         #endregion --------------------
     }
