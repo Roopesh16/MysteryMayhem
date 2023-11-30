@@ -25,6 +25,7 @@ namespace MysteryMayhem.Detective.Deduction
         private void Awake()
         {
             deductionButton.gameObject.SetActive(false);
+            deductionButton.onClick.AddListener(DeductionButton);
         }
         #endregion --------------------
 
@@ -59,7 +60,13 @@ namespace MysteryMayhem.Detective.Deduction
         public void DeductionButton()
         {
             EventService.Instance.OnFinalDeduction.InvokeEvent();
-            //deductionView.DisplayFinalInfo();
+            deductionView.EnableDeductionInfo();
+            SendDeductionData();
+        }
+
+        public void SendDeductionData()
+        {
+            deductionView.SetDeductionData(deductionMissed, blonteDecision);
         }
         #endregion --------------------
     }
