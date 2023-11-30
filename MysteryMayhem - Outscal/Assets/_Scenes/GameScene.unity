@@ -220,6 +220,7 @@ Transform:
   - {fileID: 746556706}
   - {fileID: 1342656091}
   - {fileID: 1992354341}
+  - {fileID: 682554906}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1594,6 +1595,7 @@ MonoBehaviour:
   infoButton: {fileID: 1457640177}
   detectivePos: {fileID: 353740061}
   minDistance: 2
+  deductionController: {fileID: 1992354342}
 --- !u!1 &353740059
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,7 +3838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &505210226
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4112,6 +4114,54 @@ MonoBehaviour:
   detective: {fileID: 353740061}
   dialogueView: {fileID: 746556707}
   minDistance: 2
+--- !u!1 &682554905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682554906}
+  - component: {fileID: 682554907}
+  m_Layer: 0
+  m_Name: DeductionView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &682554906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682554905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 48451171}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &682554907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682554905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab467cb35183ea48852633b81283340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deductionInfoBox: {fileID: 505210225}
+  missedDeductionText: {fileID: 71266423}
+  successMsgObject: {fileID: 170166650}
+  failMsgObject: {fileID: 49527418}
 --- !u!1 &731032970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5931,8 +5981,8 @@ MonoBehaviour:
   trueBtn: {fileID: 744135505}
   falseBtn: {fileID: 1922143326}
   timerImage: {fileID: 187515887}
-  deductionController: {fileID: 0}
-  dialogueView: {fileID: 0}
+  deductionController: {fileID: 1992354342}
+  dialogueView: {fileID: 746556707}
 --- !u!1 &1084397884
 GameObject:
   m_ObjectHideFlags: 0
@@ -7376,6 +7426,7 @@ MonoBehaviour:
   infoButton: {fileID: 1457640177}
   detectivePos: {fileID: 353740061}
   minDistance: 2.5
+  deductionController: {fileID: 1992354342}
 --- !u!1 &1651039147
 GameObject:
   m_ObjectHideFlags: 0
@@ -8371,6 +8422,7 @@ MonoBehaviour:
   infoButton: {fileID: 1457640177}
   detectivePos: {fileID: 353740061}
   minDistance: 3
+  deductionController: {fileID: 1992354342}
 --- !u!1 &1891730282
 GameObject:
   m_ObjectHideFlags: 0
@@ -8811,8 +8863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52525da68ff673f4c89a9146943bd292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deductionButton: {fileID: 0}
-  deductionView: {fileID: 0}
+  deductionButton: {fileID: 2069425680}
+  deductionView: {fileID: 682554907}
 --- !u!1 &1993511152
 GameObject:
   m_ObjectHideFlags: 0
@@ -9344,7 +9396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2069425679
 RectTransform:
   m_ObjectHideFlags: 0
