@@ -19,9 +19,8 @@ namespace MysteryMayhem.Dialogue
             }
             else if (Instance != this)
             {
-                Destroy(this);
+                Destroy(gameObject);
             }
-            DontDestroyOnLoad(gameObject);
         }
         #endregion --------------------
 
