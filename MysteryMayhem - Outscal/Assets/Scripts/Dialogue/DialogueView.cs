@@ -161,7 +161,6 @@ namespace MysteryMayhem.Dialogue
             if (memberType != Members.NULL && !hasMemberSpoken[(int)memberType])
             {
                 hasMemberSpoken[(int)memberType] = true;
-                memberType = Members.NULL;
                 EventService.Instance.OnConversationEnd.InvokeEvent();
             }
             GameManager.Instace.SetGameState(GameState.PLAY);
