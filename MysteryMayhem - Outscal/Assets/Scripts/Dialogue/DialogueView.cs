@@ -44,7 +44,6 @@ namespace MysteryMayhem.Dialogue
         private void Awake()
         {
             talkToBtn.gameObject.SetActive(false);
-            dialogueBox.SetActive(false);
             nextButton.onClick.AddListener(DequeueDialogues);
             talkToBtn.onClick.AddListener(TalkToBtn);
         }

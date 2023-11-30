@@ -6,9 +6,6 @@ namespace MysteryMayhem.Dialogue
 {
     public class DialogueLoader : MonoBehaviour
     {
-        #region ---------- Serialized Variables ----------
-        #endregion --------------------
-
         #region ---------- Public Methods ----------
         public Queue<string> GetDetBeginQueue()
         {
