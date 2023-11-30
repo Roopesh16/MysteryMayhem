@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using MysteryMayhem.Manager;
+using MysteryMayhem.Detective.Deduction;
+using MysteryMayhem.Events;
 
 namespace MysteryMayhem.Objects
 {
@@ -17,6 +19,7 @@ namespace MysteryMayhem.Objects
     public class ObjectInfo : MonoBehaviour
     {
         #region ---------- Serialized Variables ----------
+        [Header("History Info")]
         [SerializeField] private ObjectType objectType = ObjectType.NULL;
         [SerializeField] private List<string> historyList = new List<string>();
         [SerializeField] private string historyInfo;
@@ -24,10 +27,14 @@ namespace MysteryMayhem.Objects
         [SerializeField] private Button infoButton;
         [SerializeField] private Transform detectivePos;
         [SerializeField] private float minDistance = 2f;
+
+        [Header("References")]
+        [SerializeField] private DeductionController deductionController;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
         private bool canShowInfo = false;
+        private int clickCount = 0;
         #endregion --------------------
 
         #region ---------- Public Variables ----------
@@ -38,6 +45,16 @@ namespace MysteryMayhem.Objects
         {
             infoButton.onClick.AddListener(InfoButton);
             infoButton.gameObject.SetActive(false);
+        }
+
+        private void OnEnable()
+        {
+            EventService.Instance.OnFinalDeduction.AddListener(DisableInfoButton);
+        }
+
+        private void OnDisable()
+        {
+            EventService.Instance.OnFinalDeduction.RemoveListener(DisableInfoButton);
         }
 
         private void Update()
@@ -63,9 +80,22 @@ namespace MysteryMayhem.Objects
         #region ---------- Private Methods ----------
         private void InfoButton()
         {
+            if (canShowInfo)
+            {
+                clickCount++;
+                if (clickCount == 1)
+                {
+                    deductionController.IncrementDeductions(true);
+                }
+                infoButton.gameObject.SetActive(false);
+                objectInfoView.DisplayHistoryBox();
+                GameManager.Instace.SetGameState(GameState.DEDUCTION);
+            }
+        }
+
+        private void DisableInfoButton()
+        {
             infoButton.gameObject.SetActive(false);
-            objectInfoView.DisplayHistoryBox();
-            GameManager.Instace.SetGameState(GameState.DEDUCTION);
         }
         #endregion --------------------
 

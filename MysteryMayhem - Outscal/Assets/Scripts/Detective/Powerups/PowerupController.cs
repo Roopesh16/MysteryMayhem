@@ -1,4 +1,6 @@
 using System.Collections;
+using MysteryMayhem.Detective.Deduction;
+using MysteryMayhem.Dialogue;
 using MysteryMayhem.Events;
 using MysteryMayhem.Manager;
 using UnityEngine;
@@ -14,6 +16,10 @@ namespace MysteryMayhem.Detective.Powerup
         [SerializeField] private Button trueBtn;
         [SerializeField] private Button falseBtn;
         [SerializeField] private Image timerImage;
+
+        [Header("References")]
+        [SerializeField] private DeductionController deductionController;
+        [SerializeField] private DialogueView dialogueView;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -49,17 +55,26 @@ namespace MysteryMayhem.Detective.Powerup
         #region ---------- Private Methods ----------
         private void TrueButton()
         {
+            if (dialogueView.GetMemberType() == Members.BLONTE)
+            {
+                deductionController.SetBlonteDecision(true);
+            }
             DisableLieDetector();
         }
 
         private void FalseButton()
         {
+            if (dialogueView.GetMemberType() == Members.BLONTE)
+            {
+                deductionController.SetBlonteDecision(false);
+            }
             DisableLieDetector();
         }
 
         private void DisableLieDetector()
         {
             GameManager.Instace.SetGameState(GameState.PLAY);
+            deductionController.IncrementDeductions(true);
             lieDetector.SetActive(false);
             time = 0f;
             StopCoroutine(lieCoroutine);
@@ -80,6 +95,7 @@ namespace MysteryMayhem.Detective.Powerup
             time = 0f;
             lieDetector.SetActive(false);
             timerImage.fillAmount = maxFill;
+            deductionController.IncrementDeductions(false);
         }
 
         public void OnConversationEnd()
