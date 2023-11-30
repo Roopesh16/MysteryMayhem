@@ -45,6 +45,7 @@ namespace MysteryMayhem.Manager
         #region ---------- Private Methods ----------
         private void PlayButton()
         {
+            GameManager.Instace.SetGameState(GameState.PLAY);
             AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             SceneManager.LoadScene(1);
         }
