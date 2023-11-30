@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using MysteryMayhem.Events;
 using MysteryMayhem.Manager;
+using System.Collections.Generic;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -25,6 +25,9 @@ namespace MysteryMayhem.Dialogue
         [SerializeField] private string detectiveName;
         [SerializeField] private Sprite detectiveSprite;
         [SerializeField] private List<Sprite> memberSprites;
+
+        [Header("References")]
+        [SerializeField] private DialogueLoader dialogueLoader;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -78,7 +81,7 @@ namespace MysteryMayhem.Dialogue
         }
         private void LoadDetectiveBegin()
         {
-            detectiveQueue = DialogueLoader.Instance.GetDetBeginQueue();
+            detectiveQueue = dialogueLoader.GetDetBeginQueue();
             InitialDetDialogue();
         }
 
@@ -139,14 +142,14 @@ namespace MysteryMayhem.Dialogue
             {
                 speakerName.text = "";
                 speakerImage.enabled = false;
-                memberQueue = DialogueLoader.Instance.GetMemberSpokenQue();
+                memberQueue = dialogueLoader.GetMemberSpokenQue();
                 speakerDialogue.text = memberQueue.Dequeue();
             }
             else
             {
                 speakerImage.enabled = true;
-                detectiveQueue = DialogueLoader.Instance.GetDetDialogueQue(memberType);
-                memberQueue = DialogueLoader.Instance.GetMemberDialogueQue(memberType);
+                detectiveQueue = dialogueLoader.GetDetDialogueQue(memberType);
+                memberQueue = dialogueLoader.GetMemberDialogueQue(memberType);
                 InitialDetDialogue();
             }
         }

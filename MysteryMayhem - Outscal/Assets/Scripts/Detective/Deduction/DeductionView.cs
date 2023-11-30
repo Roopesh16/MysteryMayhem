@@ -1,7 +1,7 @@
-using MysteryMayhem.Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using MysteryMayhem.Manager;
 
 namespace MysteryMayhem.Detective.Deduction
 {
@@ -14,12 +14,6 @@ namespace MysteryMayhem.Detective.Deduction
         [SerializeField] private GameObject successMsgObject;
         [SerializeField] private GameObject failMsgObject;
         [SerializeField] private Button menuButton;
-        #endregion --------------------
-
-        #region ---------- Private Variables ----------
-        #endregion --------------------
-
-        #region ---------- Public Variables ----------
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------

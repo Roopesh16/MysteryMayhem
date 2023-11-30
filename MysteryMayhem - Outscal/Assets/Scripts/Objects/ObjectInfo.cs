@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
-using MysteryMayhem.Manager;
-using MysteryMayhem.Detective.Deduction;
 using MysteryMayhem.Events;
+using MysteryMayhem.Manager;
+using System.Collections.Generic;
+using MysteryMayhem.Detective.Deduction;
 
 namespace MysteryMayhem.Objects
 {

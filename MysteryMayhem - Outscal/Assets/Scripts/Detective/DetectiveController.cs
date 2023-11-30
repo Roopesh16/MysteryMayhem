@@ -1,6 +1,6 @@
-using MysteryMayhem.Detective.Powerup;
-using MysteryMayhem.Manager;
 using UnityEngine;
+using MysteryMayhem.Manager;
+using MysteryMayhem.Detective.Powerup;
 
 namespace MysteryMayhem.Detective
 {
@@ -17,18 +17,11 @@ namespace MysteryMayhem.Detective
         private Vector2 movementVec;
         #endregion --------------------
 
-        #region ---------- Public Variables ----------
-        #endregion --------------------
-
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
             detectiveAnim = GetComponent<Animator>();
             detectiveRb = GetComponent<Rigidbody2D>();
-        }
-
-        private void Start()
-        {
         }
 
         private void Update()
@@ -51,9 +44,6 @@ namespace MysteryMayhem.Detective
                 detectiveRb.MovePosition((Vector2)transform.position + movementVec * moveSpeed * Time.fixedDeltaTime);
             }
         }
-        #endregion --------------------
-
-        #region ---------- Private Methods ----------
         #endregion --------------------
 
         #region ---------- Public Methods ----------

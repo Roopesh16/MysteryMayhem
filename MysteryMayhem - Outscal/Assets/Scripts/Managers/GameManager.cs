@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -35,9 +35,9 @@ namespace MysteryMayhem.Manager
             }
             else if (Instace != this)
             {
-                Destroy(this);
+                Destroy(gameObject);
             }
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this);
             playButton.onClick.AddListener(PlayButton);
         }
         #endregion --------------------
@@ -45,6 +45,7 @@ namespace MysteryMayhem.Manager
         #region ---------- Private Methods ----------
         private void PlayButton()
         {
+            GameManager.Instace.SetGameState(GameState.PLAY);
             AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             SceneManager.LoadScene(1);
         }

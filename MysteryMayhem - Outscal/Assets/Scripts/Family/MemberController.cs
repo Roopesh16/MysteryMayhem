@@ -1,6 +1,5 @@
-using MysteryMayhem.Detective;
-using MysteryMayhem.Dialogue;
 using UnityEngine;
+using MysteryMayhem.Dialogue;
 
 public enum Members
 {
@@ -25,9 +24,6 @@ namespace MysteryMayhem.Family
         private bool canLoadDialogue = false;
         #endregion --------------------
 
-        #region ---------- Public Variables ----------
-        #endregion --------------------
-
         #region ---------- Monobehavior Methods ----------
         private void Update()
         {
@@ -44,12 +40,6 @@ namespace MysteryMayhem.Family
                 dialogueView.DisableTalkToBtn();
             }
         }
-        #endregion --------------------
-
-        #region ---------- Private Methods ----------
-        #endregion --------------------
-
-        #region ---------- Public Methods ----------
         #endregion --------------------
     }
 }

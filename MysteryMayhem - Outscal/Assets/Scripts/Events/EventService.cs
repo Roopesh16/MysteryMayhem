@@ -1,5 +1,3 @@
-using System;
-
 namespace MysteryMayhem.Events
 {
     public class EventService

@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using MysteryMayhem.Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using MysteryMayhem.Manager;
+using System.Collections.Generic;
 
 namespace MysteryMayhem.Objects
 {

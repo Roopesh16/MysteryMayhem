@@ -1,10 +1,10 @@
-using System.Collections;
-using MysteryMayhem.Detective.Deduction;
-using MysteryMayhem.Dialogue;
-using MysteryMayhem.Events;
-using MysteryMayhem.Manager;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using MysteryMayhem.Events;
+using MysteryMayhem.Manager;
+using MysteryMayhem.Dialogue;
+using MysteryMayhem.Detective.Deduction;
 
 namespace MysteryMayhem.Detective.Powerup
 {
@@ -28,9 +28,6 @@ namespace MysteryMayhem.Detective.Powerup
         private const float maxFill = 1f;
         private float time = 0f;
         private IEnumerator lieCoroutine;
-        #endregion --------------------
-
-        #region ---------- Public Variables ----------
         #endregion --------------------
 
         #region ---------- Monobehavior Methods ----------
