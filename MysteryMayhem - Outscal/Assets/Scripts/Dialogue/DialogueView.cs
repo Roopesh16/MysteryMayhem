@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using MysteryMayhem.Events;
 using MysteryMayhem.Manager;
-using MysteryMayhem.Detective.Deduction;
 
 namespace MysteryMayhem.Dialogue
 {
@@ -26,9 +25,6 @@ namespace MysteryMayhem.Dialogue
         [SerializeField] private string detectiveName;
         [SerializeField] private Sprite detectiveSprite;
         [SerializeField] private List<Sprite> memberSprites;
-
-        // [Header("References")]
-        // [SerializeField] private DeductionController deductionController;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -88,6 +84,7 @@ namespace MysteryMayhem.Dialogue
 
         private void DequeueDialogues()
         {
+            AudioManager.Instance.PlaySFX(Audio_SFX.NEXT);
             if (detectiveQueue.Count == 0 && memberQueue.Count == 0)
             {
                 DisableDialogueBox();
@@ -123,6 +120,7 @@ namespace MysteryMayhem.Dialogue
 
         private void TalkToBtn()
         {
+            AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             talkToBtn.gameObject.SetActive(false);
             dialogueBox.SetActive(true);
             StartMemberDialogue();

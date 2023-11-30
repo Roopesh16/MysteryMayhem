@@ -74,6 +74,7 @@ namespace MysteryMayhem.Detective.Powerup
         private void DisableLieDetector()
         {
             GameManager.Instace.SetGameState(GameState.PLAY);
+            AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             deductionController.IncrementDeductions(true);
             lieDetector.SetActive(false);
             time = 0f;

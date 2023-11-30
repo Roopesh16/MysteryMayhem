@@ -1,4 +1,3 @@
-using UnityEditor.Search.Providers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -30,11 +29,11 @@ namespace MysteryMayhem.Manager
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
-            if(Instace == null)
+            if (Instace == null)
             {
                 Instace = this;
             }
-            else if(Instace != this)
+            else if (Instace != this)
             {
                 Destroy(this);
             }
@@ -46,6 +45,7 @@ namespace MysteryMayhem.Manager
         #region ---------- Private Methods ----------
         private void PlayButton()
         {
+            AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             SceneManager.LoadScene(1);
         }
         #endregion --------------------
@@ -63,6 +63,7 @@ namespace MysteryMayhem.Manager
 
         public void MenuButton()
         {
+            AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             SceneManager.LoadScene(0);
         }
         #endregion --------------------

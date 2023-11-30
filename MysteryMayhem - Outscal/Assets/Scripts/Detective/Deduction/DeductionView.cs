@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using MysteryMayhem.Manager;
 using TMPro;
 using UnityEngine;
@@ -44,6 +42,7 @@ namespace MysteryMayhem.Detective.Deduction
         #region ---------- Public Methods ----------
         public void EnableDeductionInfo()
         {
+            AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             deductionInfoBox.SetActive(true);
         }
 
@@ -51,7 +50,7 @@ namespace MysteryMayhem.Detective.Deduction
         {
             missedDeductionText.text = missDeduction.ToString();
 
-            if(blonteDecision)
+            if (blonteDecision)
             {
                 successMsgObject.SetActive(true);
                 failMsgObject.SetActive(false);
