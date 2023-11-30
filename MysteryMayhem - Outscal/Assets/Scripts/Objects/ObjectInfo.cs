@@ -29,7 +29,7 @@ namespace MysteryMayhem.Objects
         [SerializeField] private float minDistance = 2f;
 
         [Header("References")]
-        private DeductionController deductionController;
+        [SerializeField] private DeductionController deductionController;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -80,14 +80,14 @@ namespace MysteryMayhem.Objects
         #region ---------- Private Methods ----------
         private void InfoButton()
         {
-            infoButton.gameObject.SetActive(false);
-            objectInfoView.DisplayHistoryBox();
-            GameManager.Instace.SetGameState(GameState.DEDUCTION);
             clickCount++;
             if (clickCount == 1)
             {
                 deductionController.IncrementDeductions(true);
             }
+            infoButton.gameObject.SetActive(false);
+            objectInfoView.DisplayHistoryBox();
+            GameManager.Instace.SetGameState(GameState.DEDUCTION);
         }
 
         private void DisableInfoButton()
