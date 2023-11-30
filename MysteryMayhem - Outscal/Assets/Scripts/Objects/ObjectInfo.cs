@@ -80,14 +80,17 @@ namespace MysteryMayhem.Objects
         #region ---------- Private Methods ----------
         private void InfoButton()
         {
-            clickCount++;
-            if (clickCount == 1)
+            if (canShowInfo)
             {
-                deductionController.IncrementDeductions(true);
+                clickCount++;
+                if (clickCount == 1)
+                {
+                    deductionController.IncrementDeductions(true);
+                }
+                infoButton.gameObject.SetActive(false);
+                objectInfoView.DisplayHistoryBox();
+                GameManager.Instace.SetGameState(GameState.DEDUCTION);
             }
-            infoButton.gameObject.SetActive(false);
-            objectInfoView.DisplayHistoryBox();
-            GameManager.Instace.SetGameState(GameState.DEDUCTION);
         }
 
         private void DisableInfoButton()
