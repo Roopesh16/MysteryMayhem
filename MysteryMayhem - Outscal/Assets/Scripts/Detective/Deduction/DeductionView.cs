@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using MysteryMayhem.Manager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MysteryMayhem.Detective.Deduction
 {
@@ -13,6 +15,7 @@ namespace MysteryMayhem.Detective.Deduction
         [SerializeField] private TextMeshProUGUI missedDeductionText;
         [SerializeField] private GameObject successMsgObject;
         [SerializeField] private GameObject failMsgObject;
+        [SerializeField] private Button menuButton;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -27,10 +30,15 @@ namespace MysteryMayhem.Detective.Deduction
             deductionInfoBox.SetActive(false);
             successMsgObject.SetActive(false);
             failMsgObject.SetActive(false);
+            menuButton.onClick.AddListener(MenuButton);
         }
         #endregion --------------------
 
         #region ---------- Private Methods ----------
+        private void MenuButton()
+        {
+            GameManager.Instace.MenuButton();
+        }
         #endregion --------------------
 
         #region ---------- Public Methods ----------

@@ -1,4 +1,7 @@
+using UnityEditor.Search.Providers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum GameState
 {
@@ -13,6 +16,7 @@ namespace MysteryMayhem.Manager
     public class GameManager : MonoBehaviour
     {
         #region ---------- Serialized Variables ----------
+        [SerializeField] private Button playButton;
         #endregion --------------------
 
         #region ---------- Private Variables ----------
@@ -35,10 +39,15 @@ namespace MysteryMayhem.Manager
                 Destroy(this);
             }
             DontDestroyOnLoad(gameObject);
+            playButton.onClick.AddListener(PlayButton);
         }
         #endregion --------------------
 
         #region ---------- Private Methods ----------
+        private void PlayButton()
+        {
+            SceneManager.LoadScene(1);
+        }
         #endregion --------------------
 
         #region ---------- Public Methods ----------
@@ -50,6 +59,11 @@ namespace MysteryMayhem.Manager
         public GameState GetGameState()
         {
             return gameState;
+        }
+
+        public void MenuButton()
+        {
+            SceneManager.LoadScene(0);
         }
         #endregion --------------------
 
