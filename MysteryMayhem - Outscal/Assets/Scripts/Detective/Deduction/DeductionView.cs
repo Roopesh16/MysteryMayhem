@@ -1,7 +1,7 @@
-using MysteryMayhem.Manager;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using MysteryMayhem.Manager;
 
 namespace MysteryMayhem.Detective.Deduction
 {

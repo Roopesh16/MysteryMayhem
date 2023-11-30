@@ -1,6 +1,6 @@
-using MysteryMayhem.Detective.Powerup;
-using MysteryMayhem.Manager;
 using UnityEngine;
+using MysteryMayhem.Manager;
+using MysteryMayhem.Detective.Powerup;
 
 namespace MysteryMayhem.Detective
 {

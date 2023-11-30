@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections.Generic;
 using MysteryMayhem.Events;
 using MysteryMayhem.Manager;
+using System.Collections.Generic;
 
 namespace MysteryMayhem.Dialogue
 {

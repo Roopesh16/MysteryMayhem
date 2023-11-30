@@ -1,10 +1,10 @@
-using System.Collections;
-using MysteryMayhem.Detective.Deduction;
-using MysteryMayhem.Dialogue;
-using MysteryMayhem.Events;
-using MysteryMayhem.Manager;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using MysteryMayhem.Events;
+using MysteryMayhem.Manager;
+using MysteryMayhem.Dialogue;
+using MysteryMayhem.Detective.Deduction;
 
 namespace MysteryMayhem.Detective.Powerup
 {

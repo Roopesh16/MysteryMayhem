@@ -1,6 +1,5 @@
-using MysteryMayhem.Detective;
-using MysteryMayhem.Dialogue;
 using UnityEngine;
+using MysteryMayhem.Dialogue;
 
 public enum Members
 {

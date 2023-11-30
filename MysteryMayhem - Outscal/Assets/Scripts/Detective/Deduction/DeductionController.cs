@@ -1,6 +1,6 @@
-using MysteryMayhem.Events;
 using UnityEngine;
 using UnityEngine.UI;
+using MysteryMayhem.Events;
 
 namespace MysteryMayhem.Detective.Deduction
 {
