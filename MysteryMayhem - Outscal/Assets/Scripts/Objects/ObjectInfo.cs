@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using MysteryMayhem.Manager;
 using MysteryMayhem.Detective.Deduction;
 using MysteryMayhem.Events;
@@ -80,6 +79,7 @@ namespace MysteryMayhem.Objects
         #region ---------- Private Methods ----------
         private void InfoButton()
         {
+            AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             if (canShowInfo)
             {
                 clickCount++;

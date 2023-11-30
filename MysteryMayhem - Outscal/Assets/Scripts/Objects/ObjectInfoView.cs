@@ -58,6 +58,7 @@ namespace MysteryMayhem.Objects
         private void CloseHistoryBox()
         {
             GameManager.Instace.SetGameState(GameState.PLAY);
+            AudioManager.Instance.PlaySFX(Audio_SFX.BUTTON_CLICK);
             objectType = ObjectType.NULL;
             historyInfoBox.SetActive(false);
             historyInfoText.text = "";
