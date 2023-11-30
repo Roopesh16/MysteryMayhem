@@ -10,12 +10,6 @@ namespace MysteryMayhem.Dialogue
         public static DialogueLoader Instance = null;
         #endregion --------------------
 
-        #region ---------- Private Variables ----------
-        #endregion --------------------
-
-        #region ---------- Public Variables ----------
-        #endregion --------------------
-
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
@@ -29,9 +23,6 @@ namespace MysteryMayhem.Dialogue
             }
             DontDestroyOnLoad(gameObject);
         }
-        #endregion --------------------
-
-        #region ---------- Private Methods ----------
         #endregion --------------------
 
         #region ---------- Public Methods ----------

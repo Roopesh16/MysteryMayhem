@@ -30,9 +30,6 @@ namespace MysteryMayhem.Detective.Powerup
         private IEnumerator lieCoroutine;
         #endregion --------------------
 
-        #region ---------- Public Variables ----------
-        #endregion --------------------
-
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {

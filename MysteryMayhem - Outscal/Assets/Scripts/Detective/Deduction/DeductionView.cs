@@ -16,12 +16,6 @@ namespace MysteryMayhem.Detective.Deduction
         [SerializeField] private Button menuButton;
         #endregion --------------------
 
-        #region ---------- Private Variables ----------
-        #endregion --------------------
-
-        #region ---------- Public Variables ----------
-        #endregion --------------------
-
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {

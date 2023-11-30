@@ -18,18 +18,12 @@ namespace MysteryMayhem.Detective.Deduction
         private bool blonteDecision = false;
         #endregion --------------------
 
-        #region ---------- Public Variables ----------
-        #endregion --------------------
-
         #region ---------- Monobehavior Methods ----------
         private void Awake()
         {
             deductionButton.gameObject.SetActive(false);
             deductionButton.onClick.AddListener(DeductionButton);
         }
-        #endregion --------------------
-
-        #region ---------- Private Methods ----------
         #endregion --------------------
 
         #region ---------- Public Methods ---------
