@@ -35,9 +35,9 @@ namespace MysteryMayhem.Manager
             }
             else if (Instace != this)
             {
-                Destroy(this);
+                Destroy(gameObject);
             }
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this);
             playButton.onClick.AddListener(PlayButton);
         }
         #endregion --------------------
