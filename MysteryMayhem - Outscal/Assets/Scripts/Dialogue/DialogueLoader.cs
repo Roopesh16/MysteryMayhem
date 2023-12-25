@@ -10,7 +10,8 @@ namespace MysteryMayhem.Dialogue
         public Queue<string> GetDetBeginQueue()
         {
             string detString = JsonLoader.LoadJson("DetectiveBegin");
-            Queue<string> detectiveQueue = JsonConvert.DeserializeObject<Queue<string>>(detString);
+            List<string> detList = JsonConvert.DeserializeObject<List<string>>(detString);
+            Queue<string> detectiveQueue = ListToQueue(detList);
             return detectiveQueue;
         }
 
@@ -32,7 +33,8 @@ namespace MysteryMayhem.Dialogue
                     detString = JsonLoader.LoadJson("DetectiveToBlonte");
                     break;
             }
-            Queue<string> detectiveQueue = JsonConvert.DeserializeObject<Queue<string>>(detString);
+            List<string> detList = JsonConvert.DeserializeObject<List<string>>(detString);
+            Queue<string> detectiveQueue = ListToQueue(detList);
             return detectiveQueue;
         }
 
@@ -54,18 +56,34 @@ namespace MysteryMayhem.Dialogue
                     memString = JsonLoader.LoadJson("BlonteToDetective");
                     break;
             }
-            Queue<string> memberQueue = JsonConvert.DeserializeObject<Queue<string>>(memString);
+            List<string> memList = JsonConvert.DeserializeObject<List<string>>(memString);
+            Queue<string> memberQueue = ListToQueue(memList);
             return memberQueue;
         }
 
         public Queue<string> GetMemberSpokenQue()
         {
             string memString = JsonLoader.LoadJson("MemberSpoken");
-            Queue<string> memberQueue = JsonConvert.DeserializeObject<Queue<string>>(memString);
+            List<string> memList = JsonConvert.DeserializeObject<List<string>>(memString);
+            Queue<string> memberQueue = ListToQueue(memList);
             return memberQueue;
         }
         #endregion --------------------
 
+        #region ---------- Private Methods ----------
+        private Queue<string> ListToQueue(List<string> list)
+        {
+            Queue<string> lineQ = new();
+            foreach (string line in list)
+            {
+                lineQ.Enqueue(line);
+            }
+
+            return lineQ;
+        }
+        #endregion --------------------
     }
 }
+
+
 
